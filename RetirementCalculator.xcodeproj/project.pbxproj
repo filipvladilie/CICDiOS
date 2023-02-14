@@ -14,6 +14,9 @@
 		791000A8299901200044D109 /* RetirementCalculatorTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 791000A7299901200044D109 /* RetirementCalculatorTests.swift */; };
 		791000B2299901200044D109 /* RetirementCalculatorUITests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 791000B1299901200044D109 /* RetirementCalculatorUITests.swift */; };
 		791000B4299901200044D109 /* RetirementCalculatorUITestsLaunchTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 791000B3299901200044D109 /* RetirementCalculatorUITestsLaunchTests.swift */; };
+		791000C2299901BA0044D109 /* AppCenterAnalytics in Frameworks */ = {isa = PBXBuildFile; productRef = 791000C1299901BA0044D109 /* AppCenterAnalytics */; };
+		791000C4299901BA0044D109 /* AppCenterCrashes in Frameworks */ = {isa = PBXBuildFile; productRef = 791000C3299901BA0044D109 /* AppCenterCrashes */; };
+		791000C6299901BA0044D109 /* AppCenterDistribute in Frameworks */ = {isa = PBXBuildFile; productRef = 791000C5299901BA0044D109 /* AppCenterDistribute */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -51,6 +54,9 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				791000C2299901BA0044D109 /* AppCenterAnalytics in Frameworks */,
+				791000C4299901BA0044D109 /* AppCenterCrashes in Frameworks */,
+				791000C6299901BA0044D109 /* AppCenterDistribute in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -143,6 +149,11 @@
 			dependencies = (
 			);
 			name = RetirementCalculator;
+			packageProductDependencies = (
+				791000C1299901BA0044D109 /* AppCenterAnalytics */,
+				791000C3299901BA0044D109 /* AppCenterCrashes */,
+				791000C5299901BA0044D109 /* AppCenterDistribute */,
+			);
 			productName = RetirementCalculator;
 			productReference = 791000932999011D0044D109 /* RetirementCalculator.app */;
 			productType = "com.apple.product-type.application";
@@ -215,6 +226,9 @@
 				Base,
 			);
 			mainGroup = 7910008A2999011D0044D109;
+			packageReferences = (
+				791000C0299901BA0044D109 /* XCRemoteSwiftPackageReference "appcenter-sdk-apple" */,
+			);
 			productRefGroup = 791000942999011D0044D109 /* Products */;
 			projectDirPath = "";
 			projectRoot = "";
@@ -583,6 +597,35 @@
 			defaultConfigurationName = Release;
 		};
 /* End XCConfigurationList section */
+
+/* Begin XCRemoteSwiftPackageReference section */
+		791000C0299901BA0044D109 /* XCRemoteSwiftPackageReference "appcenter-sdk-apple" */ = {
+			isa = XCRemoteSwiftPackageReference;
+			repositoryURL = "https://github.com/microsoft/appcenter-sdk-apple.git";
+			requirement = {
+				kind = upToNextMajorVersion;
+				minimumVersion = 5.0.1;
+			};
+		};
+/* End XCRemoteSwiftPackageReference section */
+
+/* Begin XCSwiftPackageProductDependency section */
+		791000C1299901BA0044D109 /* AppCenterAnalytics */ = {
+			isa = XCSwiftPackageProductDependency;
+			package = 791000C0299901BA0044D109 /* XCRemoteSwiftPackageReference "appcenter-sdk-apple" */;
+			productName = AppCenterAnalytics;
+		};
+		791000C3299901BA0044D109 /* AppCenterCrashes */ = {
+			isa = XCSwiftPackageProductDependency;
+			package = 791000C0299901BA0044D109 /* XCRemoteSwiftPackageReference "appcenter-sdk-apple" */;
+			productName = AppCenterCrashes;
+		};
+		791000C5299901BA0044D109 /* AppCenterDistribute */ = {
+			isa = XCSwiftPackageProductDependency;
+			package = 791000C0299901BA0044D109 /* XCRemoteSwiftPackageReference "appcenter-sdk-apple" */;
+			productName = AppCenterDistribute;
+		};
+/* End XCSwiftPackageProductDependency section */
 	};
 	rootObject = 7910008B2999011D0044D109 /* Project object */;
 }

@@ -6,12 +6,20 @@
 //
 
 import SwiftUI
+import AppCenter
+import AppCenterCrashes
+import AppCenterAnalytics
 
 @main
 struct RetirementCalculatorApp: App {
-    var body: some Scene {
-        WindowGroup {
-            ContentView()
-        }
+  
+  init() {
+    AppCenter.start(withAppSecret: "ca9fb3b6-cace-45d5-b669-993a7d459823", services: [Analytics.self, Crashes.self])
+  }
+  
+  var body: some Scene {
+    WindowGroup {
+      ContentView()
     }
+  }
 }
