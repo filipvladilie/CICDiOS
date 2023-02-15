@@ -16,7 +16,7 @@ struct ContentView: View {
   @State private var retirementAge: String = ""
   @State private var interestRate: String = ""
   @State private var currentSavings: String = ""
-  @State private var result: Int = 0
+  @State private var result: Double = 0
   @State private var showingAlert = false
   
   var body: some View {
@@ -88,6 +88,24 @@ struct ContentView: View {
     
     let current_age: Int? = Int(self.currentAge)
     let planned_retirement_age: Int? = Int(self.retirementAge)
+    let monthly_investment: Float? = Float(self.monthlyInvestments)
+    let average_rate: Float? = Float(self.interestRate)
+    let savings: Float? = Float(self.currentSavings)
+    
+    if let current_age,let planned_retirement_age,let monthly_investment,let average_rate,let savings {
+    
+      let months_until_retirement = (planned_retirement_age - current_age) * 12
+      
+      var retirement_amount = Double(savings) * pow(Double(1 + average_rate / 100), Double(months_until_retirement))
+      
+      for i in 1...months_until_retirement {
+        let monthly_rate = average_rate / 100 / 12
+        retirement_amount += Double(monthly_investment) * pow(Double(1 + monthly_rate), Double(i))
+      }
+      
+      result = retirement_amount
+      
+    }
     
     let properties = ["current_age": String(current_age ?? 0), "planned_retirement_age": String(planned_retirement_age ?? 100)]
     
