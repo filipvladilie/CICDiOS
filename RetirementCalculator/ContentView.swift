@@ -16,6 +16,7 @@ struct ContentView: View {
   @State private var retirementAge: String = ""
   @State private var interestRate: String = ""
   @State private var currentSavings: String = ""
+  @State private var result: Int = 0
   @State private var showingAlert = false
   
   var body: some View {
@@ -50,6 +51,11 @@ struct ContentView: View {
           RoundedRectangle(cornerRadius: 5)
             .stroke(Color.green, lineWidth: 2)
         )
+      HStack {
+        Spacer()
+        Text("Result is: \(result)")
+        Spacer()
+      }
       Spacer()
       Button(action: {
         calculateAction()
